@@ -46,7 +46,6 @@ const enemyAI = () => {
 
   while (filledBox.includes(ids[rand]) && filledBox.length < ids.length) {
     rand = Math.floor(Math.random() * 9);
-    console.log(filledBox.includes(ids[rand]));
   }
 
   filledBox.push(ids[rand]);
@@ -54,8 +53,6 @@ const enemyAI = () => {
   changeTurn();
   document.getElementById(ids[rand]).innerHTML = "<h1>O</h1>";
   setTimeout(() => checkWinner(enemyTurn, "O"), 300);
-
-  console.log(ids[rand]);
 };
 
 const handleClick = id => {
