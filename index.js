@@ -4,6 +4,7 @@ var enemyTurn = [];
 var filledBox = [];
 var playerPoints = 0;
 var enemyPoints = 0;
+var prevMove = [];
 var ids = [
   "one",
   "two",
@@ -40,6 +41,23 @@ window.onload = () => {
   reset.addEventListener("click", handleReset);
 };
 
+const enemyAI = () => {
+  var rand = Math.floor(Math.random() * 9);
+
+  while (filledBox.includes(ids[rand]) && filledBox.length < ids.length) {
+    rand = Math.floor(Math.random() * 9);
+    console.log(filledBox.includes(ids[rand]));
+  }
+
+  filledBox.push(ids[rand]);
+  enemyTurn.push(ids[rand]);
+  changeTurn();
+  document.getElementById(ids[rand]).innerHTML = "<h1>O</h1>";
+  setTimeout(() => checkWinner(enemyTurn, "O"), 300);
+
+  console.log(ids[rand]);
+};
+
 const handleClick = id => {
   if (!filledBox.includes(id)) {
     if (isPlayer) {
@@ -56,6 +74,7 @@ const handleClick = id => {
       setTimeout(() => checkWinner(enemyTurn, "O"), 300);
     }
   }
+  enemyAI();
 };
 
 const handlePoints = turn => {
