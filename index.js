@@ -58,18 +58,17 @@ const handleClick = id => {
   }
 };
 
-const handlePoints = (turn) => {
-  switch(turn){
+const handlePoints = turn => {
+  switch (turn) {
     case "X":
       playerPoints++;
-      return document.getElementById(turn).innerHTML = playerPoints;
-      
+      return (document.getElementById(turn).innerHTML = playerPoints);
+
     case "O":
-    enemyPoints++;
-      return document.getElementById(turn).innerHTML = enemyPoints;
-      
+      enemyPoints++;
+      return (document.getElementById(turn).innerHTML = enemyPoints);
   }
-}
+};
 
 const changeTurn = () => {
   return (isPlayer = !isPlayer);
@@ -96,7 +95,7 @@ const checkWinner = (move, turn) => {
     move.includes("seven")
   ) {
     alert(`${turn} win the game`);
-    handlePoints(turn);  
+    handlePoints(turn);
   }
   // one, five, nine
   else if (
@@ -105,7 +104,7 @@ const checkWinner = (move, turn) => {
     move.includes("nine")
   ) {
     alert(`${turn} win the game`);
-    handlePoints(turn);    
+    handlePoints(turn);
   }
   // two, five, eight
   else if (
@@ -115,7 +114,6 @@ const checkWinner = (move, turn) => {
   ) {
     alert(`${turn} win the game`);
     handlePoints(turn);
-
   }
   // three, five, seven
   else if (
@@ -125,7 +123,6 @@ const checkWinner = (move, turn) => {
   ) {
     alert(`${turn} win the game`);
     handlePoints(turn);
-
   }
   // four, five, six
   else if (
@@ -135,7 +132,6 @@ const checkWinner = (move, turn) => {
   ) {
     alert(`${turn} win the game`);
     handlePoints(turn);
-
   }
   // seven, eight, nine
   else if (
@@ -145,7 +141,6 @@ const checkWinner = (move, turn) => {
   ) {
     alert(`${turn} win the game`);
     handlePoints(turn);
-
   } else if (filledBox.length === 9) {
     alert("it's a tie !");
   }

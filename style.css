@@ -81,15 +81,15 @@ button:active {
   border: 1px #ffffff solid;
 }
 
-.score{
+.score {
   margin-top: 1em;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
 }
 
-@media screen and (max-width:450px){
-  .container{
-    width:95%;
+@media screen and (max-width: 450px) {
+  .container {
+    width: 95%;
   }
 }
